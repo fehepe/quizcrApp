@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, SafeAreaView, StatusBar, Image, TouchableOpacity, Modal, Animated } from 'react-native'
 import { COLORS, SIZES } from '../constants';
 import { useNavigation } from "@react-navigation/native";
-import data from '../data/QuizData';
+//import data from '../data/QuizData';
 import { collection, getDocs } from "firebase/firestore";
-import { auth, database } from '../config/firebase';
+import { database } from '../config/firebase';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Quiz = () => {
@@ -78,12 +78,6 @@ const Quiz = () => {
         setCorrectOption(null);
         setIsOptionsDisabled(false);
         setShowNextButton(false);
-        return navigation.navigate("Home");
-        Animated.timing(progress, {
-            toValue: 0,
-            duration: 1000,
-            useNativeDriver: false
-        }).start();
         return navigation.navigate("Home");
     }
 

@@ -18,14 +18,9 @@ const Home = () => {
                 name="comments" size={30} color='navy' style={{ marginLeft: 15 }} />
             ),
             headerRight: () => (
-                <Image
-                    source={{ uri: catImageUrl }}
-                    style={{
-                        width: 40,
-                        height: 40,
-                        marginRight: 15,
-                    }}
-                />
+                <FontAwesome 
+                onPress={() => navigation.navigate("Add")}
+                name="plus" size={30} color='navy' style={{ marginRight: 15 }} />
             ),
         });
     }, [navigation]);
