@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
-import colors from '../colors';
-import { Entypo } from '@expo/vector-icons';
+import Title from '../components/title';
+
 const catImageUrl = "https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d";
 
 const Home = () => {
@@ -13,7 +13,9 @@ const Home = () => {
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
-                <FontAwesome name="search" size={24} color={colors.gray} style={{ marginLeft: 15 }} />
+                <FontAwesome 
+                onPress={() => navigation.navigate("Chat")}
+                name="comments" size={30} color='navy' style={{ marginLeft: 15 }} />
             ),
             headerRight: () => (
                 <Image
@@ -29,27 +31,31 @@ const Home = () => {
     }, [navigation]);
 
     return (
-        <View style={styles.container}>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Chat")}
-                style={styles.chatButton}
-            >
-                <Entypo name="chat" size={24} color={colors.lightGray} />
-            </TouchableOpacity>
-        </View>
+            <View style={styles.containerHome}>
+                <Title titleText='Quizz App' />
+                <View style={styles.bannerContainer}>
+                    <Image
+                        source={{
+                            uri: 'https://cdni.iconscout.com/illustration/premium/thumb/giving-different-feedback-and-review-in-websites-2112230-1779230.png',
+                        }}
+                        style={styles.banner}
+                        resizeMode="contain"
+                    />
+                </View>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Quiz')}
+                    style={styles.button}>
+                    <Text style={styles.buttonText}>Start</Text>
+                </TouchableOpacity>
+                
+            </View>
+
     );
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
-        backgroundColor: "#fff",
-    },
     chatButton: {
         backgroundColor: 'navy',
         height: 50,
@@ -65,7 +71,7 @@ const styles = StyleSheet.create({
         shadowOpacity: .9,
         shadowRadius: 8,
         marginRight: 20,
-        marginBottom: 50,
+        marginBottom: 0,
     },
     quizButton: {
         backgroundColor: 'black',
@@ -83,5 +89,32 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
         marginRight: 20,
         marginBottom: 50,
-    }
+    },
+    banner: {
+        height: 300,
+        width: 300,
+    },
+    bannerContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+    },
+    containerHome: {
+        paddingTop: 40,
+        paddingHorizontal: 20,
+        height: '100%',
+    },
+    button: {
+        width: '100%',
+        backgroundColor: '#1A759F',
+        padding: 16,
+        borderRadius: 16,
+        alignItems: 'center',
+        marginBottom: 30,
+    },
+    buttonText: {
+        fontSize: 24,
+        fontWeight: '600',
+        color: 'white',
+    },
 });
