@@ -13,38 +13,36 @@ const Home = () => {
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
-                <FontAwesome 
-                onPress={() => navigation.navigate("Chat")}
-                name="comments" size={30} color='navy' style={{ marginLeft: 15 }} />
+                <FontAwesome
+                    onPress={() => navigation.navigate("Chat")}
+                    name="comments" size={30} color='navy' style={{ marginLeft: 15 }} />
             ),
             headerRight: () => (
-                <FontAwesome 
-                onPress={() => navigation.navigate("Add")}
-                name="plus" size={30} color='navy' style={{ marginRight: 15 }} />
+                <FontAwesome
+                    onPress={() => navigation.navigate("Add")}
+                    name="plus" size={30} color='navy' style={{ marginRight: 15 }} />
             ),
         });
     }, [navigation]);
 
     return (
-            <View style={styles.containerHome}>
-                <Title titleText='Quizz App' />
-                <View style={styles.bannerContainer}>
-                    <Image
-                        source={{
-                            uri: 'https://cdni.iconscout.com/illustration/premium/thumb/giving-different-feedback-and-review-in-websites-2112230-1779230.png',
-                        }}
-                        style={styles.banner}
-                        resizeMode="contain"
-                    />
-                </View>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Quiz')}
-                    style={styles.button}>
-                    <Text style={styles.buttonText}>Start</Text>
-                </TouchableOpacity>
-                
+        <View style={styles.containerHome}>
+            <Title titleText='Classroom Trivia App' />
+            <View style={styles.bannerContainer}>
+                <Image
+                    source={{
+                        uri: 'https://cdni.iconscout.com/illustration/premium/thumb/giving-different-feedback-and-review-in-websites-2112230-1779230.png',
+                    }}
+                    style={styles.banner}
+                    resizeMode="contain"
+                />
             </View>
-
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Quiz')}
+                style={styles.button}>
+                <Text style={styles.buttonText}>Start</Text>
+            </TouchableOpacity>
+        </View>
     );
 };
 
@@ -101,7 +99,7 @@ const styles = StyleSheet.create({
     },
     button: {
         width: '100%',
-        backgroundColor: '#1A759F',
+        backgroundColor: 'navy',
         padding: 16,
         borderRadius: 16,
         alignItems: 'center',
